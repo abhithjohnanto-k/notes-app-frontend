@@ -1,0 +1,58 @@
+<form autocomplete="off" [formGroup]='SignupForm' container id='signup-form' fxLayout="column" fxLayoutAlign="center center">
+  <div id='input-fields' fxLayout="column" fxLayoutAlign="center center">
+    <h1 class='title'>SIGN UP </h1>
+    <mat-form-field class='input-text' appearance="outline" color="primary">
+      <mat-label>First Name</mat-label>
+      <input first-name formControlName="firstName" name='firstName' required type=text matInput placeholder="John">
+      <mat-icon matSuffix>person</mat-icon>
+
+      <mat-error>
+        First name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input last-name formControlName="lastName" name='lastName' type=text matInput placeholder="Doe">
+      <mat-icon matSuffix>person</mat-icon>
+
+      <mat-error>
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Email</mat-label>
+      <input email formControlName="emailid" required type=email autocomplete="nope" matInput placeholder="id@domain.com">
+      <mat-icon matSuffix>email</mat-icon>
+
+      <mat-error>
+        Please enter valid email id
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" autocomplete="new-password" maxLength="8" required [type]="hidden ? 'password' : 'text'" matInput
+        placeholder="8 chars max">
+      <mat-icon class="icon-mat" matSuffix (click)="hidden = !hidden">{{hidden ? 'visibility_off' : 'visibility_on'}}
+      </mat-icon>
+      <mat-error>
+        Password is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Date of birth</mat-label>
+      <input formControlName="dob" matInput [matDatepicker]="dp3" disabled [(ngModel)]=selectedDate required>
+      <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+  </div>
+  <div class='signup-buttons' fxLayoutAlign="space-evenly start">
+    <button type='submit' mat-raised-button color="primary" fxFlex="30"><a [routerLink]="['/login']">Back to login</a></button>
+    <button [disabled]='!SignupForm.valid' type='submit' mat-raised-button color="primary" fxFlex="30" (click)="createAccount()">Create account</button>
+  </div>
+
+</form>

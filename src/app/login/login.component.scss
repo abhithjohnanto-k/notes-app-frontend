@@ -1,0 +1,25 @@
+#login-form {
+  height: 100%;
+  width: 100%;
+  #input-fields {
+    height: 30%;
+    width: 100%;
+    .input-text {
+      width: 30%;
+      .icon-mat {
+        cursor: pointer;
+      }
+    }
+  }
+  .buttons {
+    height: 50px;
+    width: 500px;
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}

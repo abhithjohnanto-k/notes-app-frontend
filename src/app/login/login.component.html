@@ -1,0 +1,35 @@
+<form [formGroup]='loginForm' container id='login-form' fxLayout="column" fxLayoutAlign="center center">
+  <div id='input-fields' fxLayout="column" fxLayoutAlign="center center">
+    <h1 class='headline'>LOGIN</h1>
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Email</mat-label>
+      <input email formControlName="emailid" required type=email matInput placeholder="id@domain.com">
+      <mat-icon matSuffix>email</mat-icon>
+      <!-- <mat-error>
+        Email id is required
+    </mat-error> -->
+      <mat-error>
+        Please enter valid email id
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='input-text' appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" maxLength="8" required [type]="hidden ? 'password' : 'text'" matInput
+        placeholder="8 chars max">
+      <mat-icon class="icon-mat" matSuffix (click)="hidden = !hidden">{{hidden ? 'visibility_off' : 'visibility_on'}}
+      </mat-icon>
+      <mat-error>
+        Password is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class='buttons' fxLayoutAlign="space-evenly start">
+    <a>
+
+    </a>
+    <button [disabled]='!loginForm.valid' type='submit' mat-raised-button color="primary" fxFlex="30">Login</button>
+    <button type='submit' mat-raised-button color="primary" fxFlex="30"><a [routerLink]="['/signup']">Sign up</a></button>
+  </div>
+
+</form>

@@ -1,0 +1,25 @@
+#signup-form {
+  height: 100%;
+  width: 100%;
+  #input-fields {
+    height: 60%;
+    width: 100%;
+    .input-text {
+      width: 30%;
+      .icon-mat {
+        cursor: pointer;
+      }
+    }
+  }
+  .signup-buttons {
+    height: 50px;
+    width: 500px;
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
